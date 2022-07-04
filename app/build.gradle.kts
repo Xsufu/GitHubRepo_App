@@ -1,6 +1,12 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
+    //Hilt
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -53,4 +59,12 @@ dependencies {
 
     //Retrofit с Moshi Converter
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
+
+    //Hilt
+    implementation("com.google.dagger:hilt-android:2.38.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.38.1")
+}
+
+kapt {
+    correctErrorTypes = true
 }
